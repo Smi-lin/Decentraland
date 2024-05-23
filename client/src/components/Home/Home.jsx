@@ -1,27 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FaTwitter, FaLinkedin } from "react-icons/fa";
 
 function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       <main>
         <section
-          className="bg-cover bg-center h-screen text-white flex items-center justify-center"
+          className="home h-screen bg-cover bg-center text-white flex items-center justify-center"
           style={{
-            backgroundImage: "url('https://images.pexels.com/photos/1573885/pexels-photo-1573885.jpeg?auto=compress&cs=tinysrgb&w=600')",
+            backgroundImage:
+              "url('https://images.pexels.com/photos/636342/pexels-photo-636342.jpeg?auto=compress&cs=tinysrgb&w=600')",
           }}
         >
           <div className="text-center">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
               Explore Virtual Worlds
             </h2>
-            <p className="text-lg md:text-xl mb-8">
-              Create, explore, and trade in the first-ever virtual world owned
-              by its users.
+            <p className="text-lg md:text-xl mb-8 text-center">
+              As a pioneering example of the decentralized web, Decentraland
+              emphasizes user autonomy, digital ownership, <br/> and decentralized
+              governance. It represents a new frontier in virtual reality, where
+              users have unprecedented freedom <br/> to shape their virtual
+              experiences and participate in a truly decentralized economy.
             </p>
-            <a className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
-              Learn More
-            </a>
+         
           </div>
         </section>
 
@@ -72,8 +74,51 @@ function Home() {
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-gray-400 text-center py-4">
-        <p>&copy; 2024 AvatarAcre. All rights reserved.</p>
+      <footer className="footer bg-gray-700 text-white p-12 mt-12">
+        <div className="container mx-auto flex flex-wrap justify-between">
+          <div className="footer-left w-full md:w-1/3 mb-8 md:mb-0">
+            <p className="about text-sm mb-6">
+              <span className="text-lg font-bold mb-4 block">AvatarAcre</span>
+              Decentraland is a decentralized virtual reality platform built on
+              the Ethereum blockchain. <br /> It allows users to create,
+              experience, and monetize content and applications. <br /> In this
+              virtual world, users can purchase virtual plots of land using the
+              platform's cryptocurrency.
+            </p>
+            <div className="icons flex space-x-3">
+              <a href="#">
+                <FaTwitter className="w-8 h-8 bg-gray-800 p-2 rounded" />
+              </a>
+              <a href="#">
+                <FaLinkedin className="w-8 h-8 bg-gray-800 p-2 rounded" />
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-right w-full md:w-1/3">
+            <h2 className="text-3xl font-normal mb-4">
+              Avatar<span className="text-blue-500"> Acre</span>
+            </h2>
+            <p className="menu mb-4">
+              <a href="#" className="mr-2">
+                Home
+              </a>{" "}
+              |
+              <a href="#" className="mx-2">
+                About
+              </a>{" "}
+              |
+              <a href="#" className="mx-2">
+                News
+              </a>{" "}
+              |
+              <a href="#" className="ml-2">
+                Contact
+              </a>
+            </p>
+            <p className="name text-blue-500">AvatarAcre &copy; 2024</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
