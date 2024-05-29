@@ -1,61 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const MarketPlace = () => {
-  const categories = [
-    {
-      src: "https://images.pexels.com/photos/1097016/pexels-photo-1097016.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Road Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/943500/pexels-photo-943500.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Mountain Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/3156381/pexels-photo-3156381.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Commuter Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/2387818/pexels-photo-2387818.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Gravel Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/2994124/pexels-photo-2994124.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Electric Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/3119957/pexels-photo-3119957.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Fat Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/20227336/pexels-photo-20227336/free-photo-of-road-in-the-middle-of-fields.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "Fixed Gear Bike",
-    },
-    {
-      src: "https://images.pexels.com/photos/5589174/pexels-photo-5589174.jpeg?auto=compress&cs=tinysrgb&w=600",
-      alt: "BMX Bike",
-    },
-  ];
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("land")) || [];
+    setItems(storedItems);
+  }, []);
+
+  const handleDeleteItem = (itemId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+    if (confirmed) {
+      try {
+        const updatedItems = items.filter((item) => item.id !== itemId);
+        localStorage.setItem("land", JSON.stringify(updatedItems));
+        setItems(updatedItems);
+        console.log("Item deleted.");
+      } catch (error) {
+        console.error("Error deleting item:", error);
+      }
+    }
+  };
 
   return (
-    <div className="container mt-16">
-      <h2 className="font-light text-center text-2xl mb-4">
-        Popular Categories
-      </h2>
-      <hr className="my-4" />
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
-        {categories.map((category, index) => (
-          <div key={index} className="card-bike-category">
-            <a href="#" className="d-block mb-4 h-100">
-              <img
-                className="w-full h-64 object-cover rounded-lg"
-                src={category.src}
-                alt={category.alt}
-              />
-            </a>
-          </div>
-        ))}
+    <section className="min-h-screen bg-gray-100 p-6">
+      <div className="container mx-auto">
+        <h1 className="text-[3rem] font-bold mt-[5rem] text-center mb-[3rem]">
+          MarketPlace
+        </h1>
+
+        <div className="flex flex-wrap gap-4 justify-center">
+          {items.map(
+            (
+              { id, name, x, y, size, tokenURI, imageUrl, description },
+              idx
+            ) => (
+              <div
+                key={idx}
+                className="bg-white p-4 rounded-lg shadow-lg w-[20rem] max-h-[30rem] overflow-auto border"
+              >
+                <div>
+                  <p className="font-bold">Name: {name}</p>
+                  <p>X: {x}</p>
+                  <p>Y: {y}</p>
+                  <p>Size: {size}</p>
+                  <p>Token URI: {tokenURI}</p>
+                  <p>Description: {description}</p>
+                  <img src={imageUrl} alt={name} className="mt-4 w-full"/>
+                </div>
+                <div className="mt-4 flex justify-end">
+                  <button
+                    onClick={() => handleDeleteItem(id)}
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mr-[5rem]"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            )
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

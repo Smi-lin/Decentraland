@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaTwitter, FaLinkedin } from "react-icons/fa";
 
 function Home() {
+
+  const [email, setEmail] = useState('');
+
+
   return (
     <div className="min-h-screen bg-gray-100">
       <main>
@@ -18,12 +22,12 @@ function Home() {
             </h2>
             <p className="text-lg md:text-xl mb-8 text-center">
               As a pioneering example of the decentralized web, Decentraland
-              emphasizes user autonomy, digital ownership, <br/> and decentralized
-              governance. It represents a new frontier in virtual reality, where
-              users have unprecedented freedom <br/> to shape their virtual
-              experiences and participate in a truly decentralized economy.
+              emphasizes user autonomy, digital ownership, <br /> and
+              decentralized governance. It represents a new frontier in virtual
+              reality, where users have unprecedented freedom <br /> to shape
+              their virtual experiences and participate in a truly decentralized
+              economy.
             </p>
-         
           </div>
         </section>
 
@@ -56,25 +60,23 @@ function Home() {
           </div>
         </section>
 
-        <section className="py-20 bg-gray-800 text-white">
+        <section className="py-20 bg-[#ced4da] text-[#000]">
           <div className="container mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10">
-              Get in Touch
-            </h2>
+            <h4 className="text-[1rem] md:text-4xl font-bold mb-5">
+            Subscribe to our newsletter
+            </h4>
             <p className="text-lg mb-8">
-              Have questions or want to learn more? Contact us today!
+            Get real time updates and news.  Contact us today!
             </p>
-            <a
-              href="mailto:info@decentraland.org"
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-            >
-              Contact Us
-            </a>
+         <div>
+         <input type="text" placeholder="Input your email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-[30vw] h-[7vh] p-2 border rounded text-[#000] mr-5 "/>
+         <button type="submit" className="text-white  p-2 rounded bg-blue-500 w-[8vw] h-[3rem]">View</button>
+         </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer bg-gray-700 text-white p-12 mt-12">
+      <footer className="footer text-[#000] p-12 mt-12">
         <div className="container mx-auto flex flex-wrap justify-between">
           <div className="footer-left w-full md:w-1/3 mb-8 md:mb-0">
             <p className="about text-sm mb-6">
