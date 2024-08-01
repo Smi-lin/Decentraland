@@ -10,7 +10,7 @@ const MarketPlace = () => {
 
   const handleDeleteItem = (itemId) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this item?"
+      "Are you sure you want to Buy this item?"
     );
     if (confirmed) {
       try {
@@ -39,23 +39,29 @@ const MarketPlace = () => {
             ) => (
               <div
                 key={idx}
-                className="bg-white p-4 rounded-lg shadow-lg w-[20rem] max-h-[30rem] overflow-auto border"
+                className="bg-white p-4 rounded-lg shadow-lg w-[35rem] max-h-[40rem] overflow-auto border"
               >
-                <div>
-                  <p className="font-bold">Name: {name}</p>
+                <div className="flex justify-between gap-[3rem]">
+                {imageUrl && <img src={imageUrl} alt={name} className="mt-4 w-[20rem] h-[15rem]" />}
+                 <div className="mt-8 text-[1.2rem]">
+                 <p className="font-bold">Name: {name}</p>
                   <p>X: {x}</p>
                   <p>Y: {y}</p>
                   <p>Size: {size}</p>
                   <p>Token URI: {tokenURI}</p>
-                  <p>Description: {description}</p>
-                  <img src={imageUrl} alt={name} className="mt-4 w-full"/>
+                 
+                 </div>
+               
+                </div>
+                <div>
+                <p className="text-1.5xl"><span className="font-bold text-[2rem]">Description:</span> {description}</p>
                 </div>
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={() => handleDeleteItem(id)}
-                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mr-[5rem]"
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded mr-[15rem]"
                   >
-                    Delete
+                    Buy
                   </button>
                 </div>
               </div>

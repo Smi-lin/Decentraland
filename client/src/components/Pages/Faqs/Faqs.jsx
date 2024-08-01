@@ -12,7 +12,7 @@ const Faq = () => {
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 mt-[4rem]">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-center text-gray-900">
+        <h1 className="text-[3rem] font-extrabold text-center text-gray-900">
           Frequently Asked Questions
         </h1>
         <div className="mt-12">
@@ -24,7 +24,7 @@ const Faq = () => {
                     {
                       question: "What is Decentraland?",
                       answer:
-                        "Decentraland is a virtual reality platform powered by the Ethereum blockchain. Users can create, experience, and monetize content and applications.",
+                        "Decentraland is a virtual social world, the first decentralized metaverse, and the only one that is open source. Within the Decentraland platform, which can run on a browser or desktop client, users can create, experience, and monetize content and applications as well as socialize and attend a wide range of daily, community-driven events. Decentraland is unique in that it is owned, created, and governed by the people who use it every day.",
                     },
                     {
                       question: "How can I get started with Decentraland?",

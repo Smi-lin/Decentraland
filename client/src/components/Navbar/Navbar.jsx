@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ConnectWallet from "../ConnectWallet/ConnectWallet";
 
 const Navbar = () => {
   const [navClass, setNavClass] = useState("");
@@ -62,18 +63,7 @@ const Navbar = () => {
                   >
                     Create
                   </Link>
-                  <Link
-                    to="/pages/blog"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    to="/pages/community"
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                  >
-                    Community
-                  </Link>
+                
                   <Link
                     to="/pages/faqs"
                     className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
@@ -83,8 +73,8 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <Link to="/connect-wallet" className="text-gray-200">
-              Connect Wallet
+            <Link  className="text-gray-200">
+             <ConnectWallet/>
             </Link>
           </ul>
         </div>

@@ -13,6 +13,7 @@ const Create = () => {
     description: "",
     size: "",
     tokenURI: "",
+    imageUrl: "",
   });
 
   const handleChange = (e) => {
@@ -31,7 +32,7 @@ const Create = () => {
   const confirmLand = async () => {
     try {
       const lands = JSON.parse(localStorage.getItem("land")) || [];
-      const newLand = { ...formData, id: Date.now() };
+      const newLand = { ...formData, id: Date.now(), imageUrl: file ? URL.createObjectURL(file) : '' };
 
       lands.push(newLand);
       localStorage.setItem("land", JSON.stringify(lands));
@@ -43,7 +44,9 @@ const Create = () => {
         description: "",
         size: "",
         tokenURI: "",
+        imageUrl: "",
       });
+      setFile(null);
       console.log("Land created successfully!");
       navigate("/marketplace");
 
@@ -95,7 +98,7 @@ const Create = () => {
             />
           </div>
 
-          {/* X Coordintae */}
+          {/* X Coordinate */}
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -157,7 +160,7 @@ const Create = () => {
             ></textarea>
           </div>
 
-          {/* Size Coordinate */}
+          {/* Size */}
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -203,7 +206,7 @@ const Create = () => {
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="file"
             >
-              Upload Document
+              Upload Image
             </label>
             <input
               id="file"
